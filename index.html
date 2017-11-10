@@ -4,19 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>杨康利</title>
-</head>
- 
-<body>
-<canvas id="myCanvas" style="width:100%; border:1px solid #d3d3d3;">
-您的浏览器不支持 HTML5 canvas 标签。</canvas>
+<style type="text/css">
+#div1, #div2
+{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+</style>
 <script>
+function allowDrop(ev)
+{
+	ev.preventDefault();
+}
 
-var c=document.getElementById("myCanvas");
-var ctx=c.getContext("2d");
-ctx.font="30px Arial";
-ctx.strokeText("Adam.Kangli.Yang",10,50);
+function drag(ev)
+{
+	ev.dataTransfer.setData("Text",ev.target.id);
+}
 
+function drop(ev)
+{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+}
 </script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png" draggable="true"
+		 ondragstart="drag(event)"
+		 id="drag1" width="88" height="31">
+</div>
+	
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 </body>
  
 </html>
