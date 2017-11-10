@@ -4,38 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>杨康利</title>
-<style type="text/css">
-#div1, #div2
-{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
-</style>
-<script>
-function allowDrop(ev)
-{
-	ev.preventDefault();
-}
-
-function drag(ev)
-{
-	ev.dataTransfer.setData("Text",ev.target.id);
-}
-
-function drop(ev)
-{
-	ev.preventDefault();
-	var data=ev.dataTransfer.getData("Text");
-	ev.target.appendChild(document.getElementById(data));
-}
-</script>
 </head>
 <body>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-	<img src="https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2017-09-27/297f5edb1e984613083a2d3cc0c5bb36.png" draggable="true"
-		 ondragstart="drag(event)"
-		 id="drag1" width="88" height="31">
-</div>
-	
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+<button onclick="getLocation()">点我</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else
+	{
+		x.innerHTML="该浏览器不支持获取地理位置。";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="纬度: " + position.coords.latitude + 
+	"<br>经度: " + position.coords.longitude;	
+}
+</script>
 </body>
  
 </html>
