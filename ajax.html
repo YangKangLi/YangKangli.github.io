@@ -1,98 +1,110 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="themes/icon.css">
-<script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="jquery.easyui.min.js"></script>
-<script type="text/javascript" src="bmob-min.js"></script>
 
-<script>
-$(document).ready(function(){
-	Bmob.initialize("3eb2b6c59b5ebffd5af1c59d7e53f83e", "46fe3edb70ad4a9cacec2e442c0a1812");
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="plugs/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="plugs/easyui/themes/icon.css">
+	
+		<script type="text/javascript" src="plugs/jquery.min.js" ></script>
+		
+		<script type="text/javascript" src="plugs/easyui/jquery.easyui.min.js"></script>
+		
+		<script type="text/javascript" src="plugs/bmob/bmob-min.js"></script>
 
-	var TbTest = Bmob.Object.extend("tb_test");
-		var query = new Bmob.Query(TbTest);
-		query.find({
-			success:function( results ){
-				
-				var data = {total:results.length,rows:[]};
-				var rows = [];
-				for(var i=0; i<results.length; i++){
-					var item = results[i];
-					var obj = {};
-					obj.id = item.id;
-					obj.first_name = item.attributes.first_name;
-					obj.second_name = item.attributes.second_name;
-					obj.last_name = item.attributes.last_name;
-					obj.create_time = item.createdAt;
-					rows[i] = obj;
-				}
-				data.rows = rows;
-				
-				$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', data);
-			},
-			error: function(error) {
-				alert("查询失败: " + error.code + " " + error.message);
-			}
-		});
-});
+		<script>
+			$(document).ready(function() {
+				Bmob.initialize("3eb2b6c59b5ebffd5af1c59d7e53f83e", "46fe3edb70ad4a9cacec2e442c0a1812");
 
-function pagerFilter(data){
-			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
-				data = {
-					total: data.length,
-					rows: data
-				}
-			}
-			var dg = $(this);
-			var opts = dg.datagrid('options');
-			var pager = dg.datagrid('getPager');
-			pager.pagination({
-				onSelectPage:function(pageNum, pageSize){
-					opts.pageNumber = pageNum;
-					opts.pageSize = pageSize;
-					pager.pagination('refresh',{
-						pageNumber:pageNum,
-						pageSize:pageSize
-					});
-					dg.datagrid('loadData',data);
-				}
+				var TbTest = Bmob.Object.extend("tb_test");
+				var query = new Bmob.Query(TbTest);
+				query.find({
+					success: function(results) {
+
+						var data = {
+							total: results.length,
+							rows: []
+						};
+						var rows = [];
+						for(var i = 0; i < results.length; i++) {
+							var item = results[i];
+							var obj = {};
+							obj.id = item.id;
+							obj.first_name = item.attributes.first_name;
+							obj.second_name = item.attributes.second_name;
+							obj.last_name = item.attributes.last_name;
+							obj.create_time = item.createdAt;
+							rows[i] = obj;
+						}
+						data.rows = rows;
+
+						$('#dg').datagrid({
+							loadFilter: pagerFilter
+						}).datagrid('loadData', data);
+					},
+					error: function(error) {
+						alert("查询失败: " + error.code + " " + error.message);
+					}
+				});
 			});
-			if (!data.originalRows){
-				data.originalRows = (data.rows);
-			}
-			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
-			var end = start + parseInt(opts.pageSize);
-			data.rows = (data.originalRows.slice(start, end));
-			return data;
-		}
-</script>
-</head>
-<body>
 
-<div id="div1"><h2>使用 jQuery AJAX 修改文本</h2></div>
-<h2>Basic DataGrid</h2>
-<p>The DataGrid is created from markup, no JavaScript code needed.</p>
-<div style="margin:20px 0;"></div>
-<table id="dg" title="Client Side Pagination" style="width:700px;height:300px" data-options="
+			function pagerFilter(data) {
+				if(typeof data.length == 'number' && typeof data.splice == 'function') { // is array
+					data = {
+						total: data.length,
+						rows: data
+					}
+				}
+				var dg = $(this);
+				var opts = dg.datagrid('options');
+				var pager = dg.datagrid('getPager');
+				pager.pagination({
+					onSelectPage: function(pageNum, pageSize) {
+						opts.pageNumber = pageNum;
+						opts.pageSize = pageSize;
+						pager.pagination('refresh', {
+							pageNumber: pageNum,
+							pageSize: pageSize
+						});
+						dg.datagrid('loadData', data);
+					}
+				});
+				if(!data.originalRows) {
+					data.originalRows = (data.rows);
+				}
+				var start = (opts.pageNumber - 1) * parseInt(opts.pageSize);
+				var end = start + parseInt(opts.pageSize);
+				data.rows = (data.originalRows.slice(start, end));
+				return data;
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<div id="div1">
+			<h2>使用 jQuery AJAX 修改文本</h2></div>
+		<h2>Basic DataGrid</h2>
+		<p>The DataGrid is created from markup, no JavaScript code needed.</p>
+		<div style="margin:20px 0;"></div>
+		<table id="dg" title="Client Side Pagination" style="width:700px;height:300px" data-options="
 				rownumbers:true,
 				singleSelect:true,
 				autoRowHeight:false,
 				pagination:true,
 				pageList:[5,20,30,40,50],
 				pageSize:5">
-		<thead>
-			<tr>
-				<th field="id" width="80">No</th>
-				<th field="first_name" width="100">First Name</th>
-				<th field="second_name" width="80">Second Name</th>
-				<th field="last_name" width="80" align="center">Last Name</th>
-				<th field="create_time" width="80" align="right">Create Time</th>
-			</tr>
-		</thead>
-	</table>
-<div></div>
-</body>
+			<thead>
+				<tr>
+					<th field="id" width="80">No</th>
+					<th field="first_name" width="100">First Name</th>
+					<th field="second_name" width="80">Second Name</th>
+					<th field="last_name" width="80" align="center">Last Name</th>
+					<th field="create_time" width="80" align="right">Create Time</th>
+				</tr>
+			</thead>
+		</table>
+		<div></div>
+	</body>
+
 </html>

@@ -19,14 +19,17 @@
 		</script>
 	</head>
 
-	<body class="easyui-layout">
-		<div data-options="region:'north',split:false, border:false" style="height:100px; background: #2596ea; padding: 10px">
-			后台管理系统
-		</div>
-		<div data-options="region:'west', href:'http://blog.163.com/jin_wangjia/blog/static/2904321620145198414922/', minWidth:100, split:true, border:false" style="width: 200px;"></div>
-		<div data-options="region:'center', border:false">
-			<div id="tabs" class="easyui-tabs" data-options="tools:'#tab-tools', fit:true">
-				<div title="主页" data-options="iconCls:'icon-ok', closable:false" style="padding: 10px;">主页</div>
+	<body>
+		<div id="aa" class="easyui-accordion" data-options="fit:true">
+			<div title="Title1" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">
+				<h3 style="color:#0099FF;">Accordion for jQuery</h3>
+				<p>Accordion is a part of easyui framework for jQuery. It lets you define your accordion component on web page more easily.</p>
+			</div>
+			<div title="Title2" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
+				content2
+			</div>
+			<div title="Title3">
+				content3
 			</div>
 		</div>
 	</body>
