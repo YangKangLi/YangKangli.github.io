@@ -69,22 +69,8 @@
 			var cancel = '取消';
 			hui("#open-action-sheet").click(function() {
 
-				if(!window.plus) {
-					hui.alert('只能在h5+环境下运行！');
-					return false;
-				}
-				var actionbuttons = [{
-					title: "微信好友"
-				}, {
-					title: "朋友圈"
-				}];
-				var actionstyle = {
-					title: "请选择分享类型",
-					cancel: "取消",
-					buttons: actionbuttons
-				};
-				plus.nativeUI.actionSheet(actionstyle, function(e) {
-					console.log(e.index);
+				hui.actionSheet(meuns, cancel, function(e) {
+					hui.toast(e.innerHTML);
 				});
 			});
 
