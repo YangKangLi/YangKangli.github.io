@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>HUI 轮播组件</title>
+		<link rel="stylesheet" type="text/css" href="css/hui.css" />
+
+		<style type="text/css">
+			#hui-footer a {
+				width: 25%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="hui-wrap">
+			<!-- 轮播组件演示 -->
+			<div class="hui-swipe" id="swipe1">
+				<div class="hui-swipe-item"><img src="img/swipe-1.jpg" /></div>
+				<div class="hui-swipe-item"><img src="img/swipe-2.jpg" /></div>
+				<div class="hui-swipe-item"><img src="img/swipe-3.jpg" /></div>
+			</div>
+
+			<!-- 按钮 -->
+			<button type="button" class="hui-button hui-button-large hui-primary" id="button">普通按钮</button>
+
+			<div id="hui-footer">
+				<a href="javascript:hui.toast('首页');" id="nav-home">
+					<div class="hui-footer-icons hui-icons-home"></div>
+					<div class="hui-footer-text">首页</div>
+				</a>
+				<a href="javascript:hui.toast('新闻');" id="nav-news">
+					<div class="hui-footer-icons hui-icons-news"></div>
+					<div class="hui-footer-text">新闻</div>
+				</a>
+				<a href="javascript:hui.toast('社区');" id="nav-forum">
+					<div class="hui-footer-icons hui-icons-forum"></div>
+					<div class="hui-footer-text">社区</div>
+				</a>
+				<a href="javascript:hui.toast('我的');" id="nav-my">
+					<div class="hui-footer-icons hui-icons-my"></div>
+					<div class="hui-footer-text">我的</div>
+				</a>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="js/hui.js"></script>
+		<script type="text/javascript" src="js/hui-swipe.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			var swipe1 = new huiSwpie('#swipe1');
+			swipe1.autoPlay = true;
+			swipe1.run();
+
+			hui("button").click(function() {
+				//hui.toast("我被点击了");
+				hui.alert("这是一个演示信息", "确定", function(){
+					hui.toast("您点击了确定按钮");
+				})
+			})
+
+			hui('#nav-my').pointMsg();
+		</script>
+	</body>
+
+</html>
