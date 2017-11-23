@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>杨康利</title>
+		<title>楊康利</title>
 		<link rel="stylesheet" type="text/css" href="css/hui.css" />
 
 		<style type="text/css">
@@ -24,7 +24,12 @@
 			</div>
 
 			<!-- 按钮 -->
-			<button type="button" class="hui-button hui-button-large hui-primary" id="button">普通按钮</button>
+			<div style="padding: 5px;">
+				<button type="button" class="hui-button hui-button-large hui-primary" id="button">普通按钮</button>
+			</div>
+			<div style="padding: 5px;">
+				<button type="button" class="hui-button hui-button-large hui-primary" id="open-action-sheet">打开ActionSheet</button>
+			</div>
 
 			<div id="hui-footer">
 				<a href="javascript:hui.toast('首页');" id="nav-home">
@@ -53,12 +58,35 @@
 			swipe1.autoPlay = true;
 			swipe1.run();
 
-			hui("button").click(function() {
+			hui("#button").click(function() {
 				//hui.toast("我被点击了");
-				hui.alert("这是一个演示信息", "确定", function(){
+				hui.alert("这是一个演示信息", "确定", function() {
 					hui.toast("您点击了确定按钮");
 				})
-			})
+			});
+
+			var meuns = ['拍照', '从相册中选择'];
+			var cancel = '取消';
+			hui("#open-action-sheet").click(function() {
+
+				if(!window.plus) {
+					hui.alert('只能在h5+环境下运行！');
+					return false;
+				}
+				var actionbuttons = [{
+					title: "微信好友"
+				}, {
+					title: "朋友圈"
+				}];
+				var actionstyle = {
+					title: "请选择分享类型",
+					cancel: "取消",
+					buttons: actionbuttons
+				};
+				plus.nativeUI.actionSheet(actionstyle, function(e) {
+					console.log(e.index);
+				});
+			});
 
 			hui('#nav-my').pointMsg();
 		</script>
