@@ -1,0 +1,114 @@
+{
+  "index.html": {
+    "refer": [
+      "index-menu.html",
+      "examples/guide.html",
+      "examples/ajax.html",
+      "examples/accordion.html",
+      "examples/actionsheet-plus.html",
+      "examples/actionsheet.html",
+      "examples/badges.html",
+      "examples/card.html",
+      "examples/buttons.html",
+      "examples/checkbox.html",
+      "examples/buttons-with-icons.html",
+      "examples/buttons-with-block.html",
+      "examples/buttons-with-badges.html",
+      "examples/buttons-with-loading.html",
+      "examples/dtpicker.html",
+      "examples/date.html",
+      "examples/dialog.html",
+      "examples/slider-default.html",
+      "examples/slider-native.html",
+      "examples/slider-with-title.html",
+      "examples/slider-table-pagination.html",
+      "examples/slider-table-default.html",
+      "examples/grid-default.html",
+      "examples/grid-pagination.html",
+      "examples/icons.html",
+      "examples/input.html",
+      "examples/icons-extra.html",
+      "examples/tableviews-with-badges.html",
+      "examples/tableviews.html",
+      "examples/list-with-input.html",
+      "examples/tableviews-with-collapses.html",
+      "examples/list-triplex-row.html",
+      "examples/tableviews-with-swipe.html",
+      "examples/media-list.html",
+      "examples/nav.html",
+      "examples/nav-nativeObj.html",
+      "examples/nav_transparent.html",
+      "examples/nav_transparent_native.html",
+      "examples/numbox.html",
+      "examples/offcanvas-drag-right-plus-main.html",
+      "examples/offcanvas-drag-down.html",
+      "examples/offcanvas-drag-left.html",
+      "examples/pagination.html",
+      "examples/picker.html",
+      "examples/progressbar.html",
+      "examples/radio.html",
+      "examples/popovers.html",
+      "examples/pullrefresh_main.html",
+      "examples/pullrefresh_with_tab.html",
+      "examples/pullrefresh.html",
+      "examples/tabbar.html",
+      "examples/tab-webview-main.html",
+      "examples/tabbar-with-submenus.html",
+      "examples/tab-with-segmented-control.html",
+      "examples/typography.html",
+      "examples/tab-with-segmented-control-vertical.html",
+      "examples/ad.html",
+      "examples/echarts.html",
+      "examples/im-chat.html",
+      "examples/clouddb_wilddog.html",
+      "examples/beecloud.html",
+      "examples/feedback.html",
+      "examples/imageviewer.html",
+      "examples/indexed-list.html",
+      "examples/indexed-list-select.html",
+      "examples/lazyload-image.html",
+      "examples/setting.html",
+      "examples/login.html",
+      "examples/best-practices/list-to-detail/listview.html",
+      "examples/info.html",
+      "list.html"
+    ],
+    "resources": [
+      "list.html"
+    ]
+  },
+  "index-menu.html": {
+    "refer": [
+      "examples/pullrefresh_main.html"
+    ]
+  },
+  "examples/pullrefresh_main.html": {
+    "resources": [
+      "examples/pullrefresh_sub.html"
+    ],
+    "refer": [
+      "examples/pullrefresh_sub.html"
+    ]
+  },
+  "examples/offcanvas-drag-right-plus-main.html": {
+    "refer": [
+      "examples/offcanvas-drag-right-plus-menu.html"
+    ]
+  },
+  "examples/tab-webview-main.html": {
+    "resources": [
+      "examples/tab-webview-subpage-about.html"
+    ],
+    "refer": [
+      "examples/tab-webview-subpage-setting.html",
+      "examples/tab-webview-subpage-chat.html",
+      "examples/tab-webview-subpage-contact.html",
+      "examples/tab-webview-subpage-about.html"
+    ]
+  },
+  "examples/best-practices/list-to-detail/listview.html": {
+    "refer": [
+      "examples/best-practices/list-to-detail/detail.html"
+    ]
+  }
+}
