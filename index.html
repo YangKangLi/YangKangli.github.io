@@ -1,24 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的名字 · Android 工程师</title>
+  <meta name="description" content="Android 工程师个人网站：作品展示、技能栈与联系方式。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#hero"><span class="logo-bracket">&lt;</span>Yang<span class="logo-bracket">/&gt;</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#works" class="nav-link">作品</a>
+        <a href="#skills" class="nav-link">技能栈</a>
+        <a href="#contact" class="nav-link">联系</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-	<head>
-		<meta charset="utf-8">
-		<title>愚人节快乐</title>
-		<style type="text/css">
-		
-			div {
-				text-align: center; 让div内部文字居中*/
-				margin: auto;
-			}
-			img{
-				width:100%;
-			}
-		</style>
-	</head>
+  <!-- 首屏 Hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">yangkl@android-dev: ~</span>
+        </div>
+        <div class="terminal-body">
+          <p><span class="prompt">$</span> whoami</p>
+          <h1 class="hero-name">你好，我是 <span class="accent">你的名字</span></h1>
+          <p><span class="prompt">$</span> cat role.txt</p>
+          <p class="hero-title"><span id="typed"></span><span class="cursor">▊</span></p>
+          <p><span class="prompt">$</span> ls skills/</p>
+          <div class="hero-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">Java</span>
+            <span class="tag">Android SDK</span>
+            <span class="tag">MVVM</span>
+            <span class="tag">Coroutines</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="#works">查看作品</a>
+        <a class="btn ghost" href="#contact">联系我</a>
+      </div>
+    </div>
+    <div class="grid-bg" aria-hidden="true"></div>
+  </section>
 
-	<body style="background:#FFD832; margin:0px;">
-		<div><img src="./fool.png" border=0/>
-		</div>
-	</body>
+  <!-- 作品展示 -->
+  <section class="section" id="works">
+    <div class="container">
+      <h2 class="section-title">// 作品展示<span class="title-line"></span></h2>
+      <p class="section-sub">一些我做过/参与的项目（占位内容，替换成你的真实项目即可）</p>
+      <div class="works-grid">
+        <!-- 项目卡片模板：替换标题、简介、标签、链接 -->
+        <article class="work-card">
+          <div class="work-cover cover-1"><span class="work-emoji">📱</span></div>
+          <div class="work-body">
+            <h3>项目名称一</h3>
+            <p>一句话介绍这个项目做了什么、解决了什么问题。例如：一款基于 Jetpack Compose 的待办应用。</p>
+            <div class="work-tags"><span>Kotlin</span><span>Compose</span><span>Room</span></div>
+            <div class="work-links">
+              <a href="#" rel="noopener">GitHub ↗</a>
+              <a href="#" rel="noopener">了解更多 ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover cover-2"><span class="work-emoji">🤖</span></div>
+          <div class="work-body">
+            <h3>项目名称二</h3>
+            <p>一句话介绍，例如：集成大模型 API 的智能助手 App，支持语音对话与多模态输入。</p>
+            <div class="work-tags"><span>Kotlin</span><span>Retrofit</span><span>Flow</span></div>
+            <div class="work-links">
+              <a href="#" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover cover-3"><span class="work-emoji">📊</span></div>
+          <div class="work-body">
+            <h3>项目名称三</h3>
+            <p>一句话介绍，例如：数据可视化组件库，为团队内部提供统一图表方案。</p>
+            <div class="work-tags"><span>Java</span><span>自定义 View</span><span>AAR</span></div>
+            <div class="work-links">
+              <a href="#" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover cover-4"><span class="work-emoji">🛠️</span></div>
+          <div class="work-body">
+            <h3>项目名称四</h3>
+            <p>一句话介绍，例如：Gradle 构建提速工具链，将 CI 构建时间降低 40%。</p>
+            <div class="work-tags"><span>Gradle</span><span>Kotlin DSL</span><span>CI/CD</span></div>
+            <div class="work-links">
+              <a href="#" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover cover-5"><span class="work-emoji">🎮</span></div>
+          <div class="work-body">
+            <h3>项目名称五</h3>
+            <p>一句话介绍，例如：一款休闲小游戏，使用 SurfaceView 实现高性能渲染。</p>
+            <div class="work-tags"><span>Kotlin</span><span>Canvas</span><span>游戏开发</span></div>
+            <div class="work-links">
+              <a href="#" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-cover cover-6"><span class="work-emoji">📦</span></div>
+          <div class="work-body">
+            <h3>项目名称六</h3>
+            <p>一句话介绍，例如：开源的模块化架构脚手架，一键生成标准 App 骨架。</p>
+            <div class="work-tags"><span>组件化</span><span>模块化</span><span>架构设计</span></div>
+            <div class="work-links">
+              <a href="#" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <!-- 技能栈 -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <h2 class="section-title">// 技能栈<span class="title-line"></span></h2>
+      <p class="section-sub">日常工作中使用的技术与工具</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3><span class="skill-icon">⌨️</span> 语言</h3>
+          <ul>
+            <li><b>Kotlin</b><span>主力语言 · 协程 · Flow</span></li>
+            <li><b>Java</b><span>遗留系统维护与重构</span></li>
+            <li><b>C++</b><span>NDK / JNI 基础</span></li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="skill-icon">🧩</span> 框架</h3>
+          <ul>
+            <li><b>Jetpack Compose</b><span>声明式 UI · 动效</span></li>
+            <li><b>Android Jetpack</b><span>ViewModel · Room · Navigation</span></li>
+            <li><b>Hilt / Koin</b><span>依赖注入</span></li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="skill-icon">🧰</span> 工具</h3>
+          <ul>
+            <li><b>Android Studio</b><span>Profiling · Layout Inspector</span></li>
+            <li><b>Gradle</b><span>构建优化 · Kotlin DSL</span></li>
+            <li><b>Git / CI</b><span>GitHub Actions · Jenkins</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">// 联系我<span class="title-line"></span></h2>
+      <p class="section-sub">欢迎通过以下方式与我交流（占位内容，替换成你的真实联系方式）</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:your-email@example.com">
+          <span class="contact-icon">📮</span>
+          <b>邮箱</b>
+          <span class="contact-value">your-email@example.com</span>
+        </a>
+        <a class="contact-card" href="https://github.com/yourname" target="_blank" rel="noopener">
+          <span class="contact-icon">🐙</span>
+          <b>GitHub</b>
+          <span class="contact-value">github.com/yourname</span>
+        </a>
+        <a class="contact-card" href="https://juejin.cn/user/yourid" target="_blank" rel="noopener">
+          <span class="contact-icon">⛏️</span>
+          <b>掘金</b>
+          <span class="contact-value">juejin.cn/user/yourid</span>
+        </a>
+        <a class="contact-card" href="#" onclick="return false;">
+          <span class="contact-icon">💬</span>
+          <b>微信</b>
+          <span class="contact-value">your-wechat-id</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p><span class="accent">&lt;/&gt;</span> 用 ❤️ 和 <b>Kotlin</b> 构建 · <span id="year"></span></p>
+      <p class="footer-sub">Hosted with WorkBuddy · Design inspired by Android</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
